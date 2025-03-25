@@ -1,0 +1,140 @@
+:root {
+    --bg-primary: #f0f4f8;
+    --bg-secondary: #ffffff;
+    --text-primary: #1a2733;
+    --text-secondary: #2c3e50;
+    --accent-color: #3498db;
+    --hover-color: #2980b9;
+    --button-bg: #ecf0f1;
+    --button-hover: #dde4e6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.calculator {
+    background-color: var(--bg-secondary);
+    border-radius: 25px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 350px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.display {
+    background-color: var(--bg-primary);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    word-break: break-all;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.btn {
+    background-color: var(--button-bg);
+    border: none;
+    color: var(--text-secondary);
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn:hover::before {
+    opacity: 1;
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.operator {
+    background-color: #e8f4fd;
+    color: var(--accent-color);
+}
+
+.equal {
+    background-color: var(--accent-color);
+    color: white;
+    grid-column: span 2;
+}
+
+.clear {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+@media screen and (max-width: 400px) {
+    .calculator {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .display {
+        font-size: 2rem;
+        min-height: 100px;
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+@media (hover: hover) {
+    .btn:hover {
+        background-color: var(--button-hover);
+        transform: translateY(-3px);
+    }
+}
